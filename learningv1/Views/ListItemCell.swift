@@ -10,6 +10,7 @@ import SwiftUI
 struct ListItemCell: View {
     
     let item: MyListItemViewModel
+    let delay = Delay()
 
     @State private var active: Bool = false
     @State private var showPopOver: Bool = false
@@ -27,7 +28,11 @@ struct ListItemCell: View {
                 .onTapGesture {
                     checked.toggle()
                     if checked {
-                        onListItemCompleted(item)
+                        delay.performWork {
+                            onListItemCompleted(item)
+                        }
+                    } else{
+                        delay.cancel()
                     }
                 }
             
