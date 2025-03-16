@@ -28,7 +28,7 @@ struct MyListsView: View {
                             items: myList.items,
                             onItemsAdded: {title, dueDue in
                             vm.saveTo(list: myList, title: title, dueDate: dueDue)
-                            }, onItemDeleted: vm.deleteItem)
+                            }, onItemDeleted: vm.deleteItem, onItemCompleted: vm.markAsCompleted)
                     } label: {
                         HStack {
                             Image(systemName: Constants.Icons.line3HorizontalCircleFill).font(.title)
