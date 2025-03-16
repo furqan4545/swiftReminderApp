@@ -14,7 +14,6 @@ struct SideBarView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("All items count 10")
             
             MyListsView(vm: MyListsViewModel(context: context))
             Spacer()

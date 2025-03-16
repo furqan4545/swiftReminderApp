@@ -25,6 +25,12 @@ class MyListsViewModel: NSObject, ObservableObject {
         fetchAll()
     }
     
+    var allListItemCount: Int {
+        myLists.reduce(0) { sum, vm in
+            sum + vm.itemsCount
+        }
+    }
+    
     func markAsCompleted(_ item: MyListItemViewModel) {
         let myListItem: MyListItem? = MyListItem.byId(id: item.listItemId)
         if let myListItem = myListItem {
