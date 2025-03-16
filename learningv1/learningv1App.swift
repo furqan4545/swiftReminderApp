@@ -11,7 +11,8 @@ import SwiftUI
 struct learningv1App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewContext = CoreDataManager.shared.persistentContainer.viewContext
+            HomeScreen().environment(\.managedObjectContext, viewContext)
         }
     }
 }
